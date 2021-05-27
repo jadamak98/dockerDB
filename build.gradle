@@ -1,0 +1,49 @@
+plugins {
+    id "java"
+    id "org.jetbrains.kotlin.jvm" version "1.5.0"
+    id "org.jetbrains.intellij" version "0.7.3"
+}
+
+
+group 'org.example'
+version '1.0.0'
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+compileJava{
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+}
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'org.example.docker1.AppKt'
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation "org.postgresql:postgresql:42.2.19"
+    implementation 'org.apache.commons:commons-csv:1.5'
+}
+
+repositories {
+    mavenCentral()
+}
+
+
+test {
+    useJUnitPlatform()
+}
