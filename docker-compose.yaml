@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  java:
+    image: openjdk:8
+    container_name: "dockerDB"
+    restart: always
+    ports:
+      - 8091:8091
+    volumes:
+      - .:/home
+    environment:
+      cntStr: jdbc:postgresql://10.151.128.164/company?user=postgres&password=fred&currentSchema=staff
+      sqlStm: Select * from staff.staffinfo;
+      fileName: staff
+      csvPath: /home/
+    entrypoint: java -jar /home/docker1-1.0.0.jar
+
+

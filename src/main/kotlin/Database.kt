@@ -8,8 +8,9 @@ import java.nio.file.Paths
 import java.sql.*
 import kotlin.system.exitProcess
 
-class Database(val cntStr: String, val sqlStm: String, val csvPath: String = "/tmp", val fileName: String?) {
+class Database(val cntStr: String, val sqlStm: String, csvPath: String?, val fileName: String?) {
     var conn: Connection
+    private val csvPath = csvPath ?: "/tmp"
     init {
         try {
             conn = DriverManager.getConnection(cntStr)

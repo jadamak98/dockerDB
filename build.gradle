@@ -31,10 +31,8 @@ jar {
     }
 }
 
-dependencies {
+dependencies{
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
     implementation "org.postgresql:postgresql:42.2.19"
     implementation 'org.apache.commons:commons-csv:1.5'
 }

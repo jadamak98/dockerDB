@@ -1,8 +1,8 @@
 package org.example.docker1
 
 
-val cntStr = System.getenv("cntstr")
-val csvPath = System.getenv("csvpath")
+val cntStr = System.getenv("cntStr")
+val csvPath = System.getenv("csvPath")
 val sqlStm = System.getenv("sqlStm")
 val fileName = System.getenv("fileName")
 
