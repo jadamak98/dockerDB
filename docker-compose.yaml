@@ -10,10 +10,8 @@ services:
     volumes:
       - .:/home
     environment:
-      cntStr: jdbc:postgresql://10.151.128.164/company?user=postgres&password=fred&currentSchema=staff
-      sqlStm: Select * from staff.staffinfo;
-      fileName: staff
-      csvPath: /home/
-    entrypoint: java -jar /home/docker1-1.0.0.jar
+      cntStr: jdbc:postgresql://10.151.128.191/company?user=postgres&password=fred&currentSchema=staff
+    entrypoint: java -jar /home/docker1-1.0.0.jar -i -cp "/home/staff.csv" -tn "employee" -cn "id, name, gender, department, email, salary"
 
-
+#  writeCSV
+#  entrypoint: java -jar /home/docker1-1.0.0.jar -w -cp "/home/staff.csv" -ss "select * from staff.employee"
